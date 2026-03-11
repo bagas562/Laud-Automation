@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://laud.noretest2.com/login');
+  await page.getByRole('textbox', { name: 'Username / Marking' }).click();
+  await page.getByRole('textbox', { name: 'Username / Marking' }).fill('Bagas-QA');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('Bagas-QA');
+  await page.getByRole('button', { name: 'Sign in ' }).click();
+  await page.getByRole('link', { name: ' Invoice Lain lain' }).click();
+  await page.getByRole('button', { name: ' Tambah' }).click();
+  await page.getByTitle('-- Pilih Invoice --').click();
+  await page.getByRole('treeitem', { name: 'ZJINV0310135324' }).click();
+  await page.getByRole('button').click();
+  await page.locator('#btnkurangbiaya').click();
+  await page.locator('input[name="pt_deskripsi[]"]').click();
+  await page.locator('input[name="pt_deskripsi[]"]').fill('diskon');
+  await page.locator('input[name="pt_harga[]"]').click();
+  await page.locator('input[name="pt_harga[]"]').fill('30000');
+  await page.locator('#no_invoice_lain').click();
+  await page.locator('#no_invoice_lain').fill('ZJINV0310135324');
+  await page.locator('#select2-ship_via-container').click();
+  await page.getByRole('treeitem', { name: 'SEA - Express' }).click();
+  await page.getByTitle('-- Pilih Rekening --').click();
+  await page.getByRole('treeitem', { name: 'BCA | 987670085 - KINGBAGAS' }).click();
+  await page.locator('input[name="customer_po"]').click();
+  await page.locator('input[name="customer_po"]').fill('UUN');
+  await page.getByRole('paragraph').click();
+  await page.locator('.note-editable').fill('ASEK');
+  await page.getByRole('button', { name: ' Buat Invoice' }).click();
+});
