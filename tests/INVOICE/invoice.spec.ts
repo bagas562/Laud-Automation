@@ -4,52 +4,41 @@ test('Create Invoice', async ({ page }) => {
 
   await page.goto('https://laud.noretest2.com/login');
 
-  // login
+  // LOGIN
   await page.getByRole('textbox', { name: 'Username / Marking' }).fill('Bagas-QA');
   await page.getByRole('textbox', { name: 'Password' }).fill('Bagas-QA');
   await page.getByRole('button', { name: /Sign in/i }).click();
 
-  // masuk menu invoice
-  await page.locator('a[href="https://laud.noretest2.com/invoice"]').click();
+  // MASUK MENU INVOICE
+  await page.goto('https://laud.noretest2.com/invoice');
   await page.getByRole('button', { name: 'Tambah' }).click();
 
-  // pilih marking
-  await page.locator('#select2-filter_marking-container').click();
-  await page.locator('.select2-search__field').fill('bagass');
-  await page.locator('.select2-results__option').first().click();
+  // PILIH MARKING
+  await page.getByTitle('-- Pilih Marking --').click();
+  await page.getByRole('treeitem', { name: 'bagass - LD/KONG08' }).click();
 
-  // pilih resi
-  await page.locator('#select2-filter_resi-container').click();
-  await page.locator('.select2-search__field').fill('272727272277272');
-  await page.locator('.select2-results__option').first().click();
-
-  // filter
+  // FILTER
   await page.locator('#btnFilter').click();
+  await page.waitForTimeout(3000);
 
-  // checklist resi
-  await page.locator('input[type="checkbox"]').first().check();
+  // CHECKLIST RESI PERTAMA
+  await page.locator('#tableresi tbody tr').first().click();
 
-  // buat invoice
+  // BUAT INVOICE
   await page.getByRole('button', { name: 'Buat Invoice' }).click();
 
-  // ship via
-  await page.locator('#select2-ship_via-container').click();
-  await page.locator('.select2-results__option', { hasText: 'SEA - Express' }).click();
+  // SHIP VIA
+  await page.getByTitle('-- Pilih Ship Via --').click();
+  await page.getByRole('treeitem', { name: 'SEA - Express' }).click();
 
-  // rekening
-  // buka dropdown rekening
-await page.locator('#select2-rekening-container').click();
+  // REKENING
+  await page.getByTitle('-- Pilih Rekening --').click();
+  await page.getByRole('treeitem', { name: 'BCA | 987670085 - KINGBAGAS' }).click();
 
-// ketik rekening
-await page.locator('.select2-search__field').fill('KINGBAGAS');
+  // NOTE
+  await page.locator('.note-editable').fill('mahal ni');
 
-// klik hasil
-await page.locator('.select2-results__option').first().click();
-
-  // note
-  await page.locator('.note-editable').fill('uyeeee');
-
-  // submit
-  await page.getByRole('button', { name: 'Buat Invoice' }).click();
+  // SUBMIT
+  await page.getByRole('button', { name: 'Buat Invoice' }).last().click();
 
 });

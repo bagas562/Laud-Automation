@@ -1,0 +1,176 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text:  
+    - generic [ref=e4]:
+      - list [ref=e5]:
+        - listitem [ref=e6]:
+          - link "" [ref=e7] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e8]: 
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - link "Tuan Muda Bagas " [ref=e12] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e13]: Tuan Muda Bagas
+            - text: 
+          - text:  
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - text:   
+      - list [ref=e18]:
+        - listitem [ref=e19]:
+          - generic [ref=e20]: Menu
+          - text: 
+        - listitem [ref=e21]:
+          - link " Dashboard" [ref=e22] [cursor=pointer]:
+            - /url: /dashboard
+            - generic [ref=e23]: 
+            - generic [ref=e24]: Dashboard
+        - listitem [ref=e25]:
+          - link " Users" [ref=e26] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/users
+            - generic [ref=e27]: 
+            - generic [ref=e28]: Users
+        - listitem [ref=e29]:
+          - generic [ref=e30]: Tracking
+          - text: 
+        - listitem [ref=e31]:
+          - link " Receipt" [ref=e32] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/receipt
+            - generic [ref=e33]: 
+            - generic [ref=e34]: Receipt
+        - listitem [ref=e35]:
+          - link " Stuffing China" [ref=e36] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/stuffingcina
+            - generic [ref=e37]: 
+            - generic [ref=e38]: Stuffing China
+        - listitem [ref=e39]:
+          - link " Container Ready to Send" [ref=e40] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/containertosend
+            - generic [ref=e41]: 
+            - generic [ref=e42]: Container Ready to Send
+        - listitem [ref=e43]:
+          - link " Delivery to Indonesia" [ref=e44] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/delivertoindo
+            - generic [ref=e45]: 
+            - generic [ref=e46]: Delivery to Indonesia
+        - listitem [ref=e47]:
+          - link " Arrival to Indonesia" [ref=e48] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/arrivalindo
+            - generic [ref=e49]: 
+            - generic [ref=e50]: Arrival to Indonesia
+        - listitem [ref=e51]:
+          - link " Unstuffing Indonesia" [ref=e52] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/stuffingindo
+            - generic [ref=e53]: 
+            - generic [ref=e54]: Unstuffing Indonesia
+        - listitem [ref=e55]:
+          - link " Delivery to Customer" [ref=e56] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/deliverytocustomer
+            - generic [ref=e57]: 
+            - generic [ref=e58]: Delivery to Customer
+        - listitem [ref=e59]:
+          - link " History Receipt" [ref=e60] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/historyreceipt
+            - generic [ref=e61]: 
+            - generic [ref=e62]: History Receipt
+        - listitem [ref=e63]:
+          - generic [ref=e64]: Invoicing
+          - text: 
+        - listitem [ref=e65]:
+          - link " Invoice" [ref=e66] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/invoice
+            - generic [ref=e67]: 
+            - generic [ref=e68]: Invoice
+        - listitem [ref=e69]:
+          - link " Invoice Lain lain" [ref=e70] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/invoicelain
+            - generic [ref=e71]: 
+            - generic [ref=e72]: Invoice Lain lain
+        - listitem [ref=e73]:
+          - generic [ref=e74]: Master
+          - text: 
+        - listitem [ref=e75]:
+          - link " Coload" [ref=e76] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/coload
+            - generic [ref=e77]: 
+            - generic [ref=e78]: Coload
+        - listitem [ref=e79]:
+          - link " Penyedia Pengiriman" [ref=e80] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/masterpengiriman
+            - generic [ref=e81]: 
+            - generic [ref=e82]: Penyedia Pengiriman
+        - listitem [ref=e83]:
+          - link " Port" [ref=e84] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/masterports
+            - generic [ref=e85]: 
+            - generic [ref=e86]: Port
+        - listitem [ref=e87]:
+          - link " Gudang Asal" [ref=e88] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/gudang
+            - generic [ref=e89]: 
+            - generic [ref=e90]: Gudang Asal
+        - listitem [ref=e91]:
+          - link " Master Ship" [ref=e92] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/shipvia
+            - generic [ref=e93]: 
+            - generic [ref=e94]: Master Ship
+        - listitem [ref=e95]:
+          - link " Rekening" [ref=e96] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/rekening
+            - generic [ref=e97]: 
+            - generic [ref=e98]: Rekening
+        - listitem [ref=e99]:
+          - link " Tipe Ekspedisi" [ref=e100] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/tipeekspedisi
+            - generic [ref=e101]: 
+            - generic [ref=e102]: Tipe Ekspedisi
+        - listitem [ref=e103]:
+          - link " Kategori Barang" [ref=e104] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/kategoribarang
+            - generic [ref=e105]: 
+            - generic [ref=e106]: Kategori Barang
+        - listitem [ref=e107]:
+          - link " Alamat Gudang" [ref=e108] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/alamatgudang
+            - generic [ref=e109]: 
+            - generic [ref=e110]: Alamat Gudang
+        - listitem [ref=e111]:
+          - link " Pengaturan" [ref=e112] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/settings
+            - generic [ref=e113]: 
+            - generic [ref=e114]: Pengaturan
+    - generic [ref=e115]:
+      - generic [ref=e118]:
+        - heading "Create Invoice - Data" [level=3] [ref=e119]
+        - text: 
+      - generic [ref=e120]:
+        - generic [ref=e126]:
+          - generic [ref=e127]: Marking
+          - generic [ref=e128]:
+            - combobox [ref=e129]
+            - combobox "bagass - LD/KONG08" [ref=e132] [cursor=pointer]:
+              - generic "bagass - LD/KONG08" [ref=e133]
+              - text: 
+          - generic [ref=e134]: Resi
+          - generic [ref=e135]:
+            - combobox [ref=e136]
+            - combobox "-- Pilih Resi --" [ref=e139] [cursor=pointer]:
+              - generic "-- Pilih Resi --" [ref=e140]
+              - text: 
+          - generic [ref=e141]:
+            - button "" [disabled] [ref=e142]:
+              - generic [ref=e143]: 
+            - link "" [ref=e144] [cursor=pointer]:
+              - /url: https://laud.noretest2.com/invoice/create
+              - generic [ref=e145]: 
+        - text:                       
+      - generic [ref=e146]:
+        - text:  
+        - generic [ref=e148]: © 2026. Nore
+  - tooltip "Filter Customer" [ref=e149]:
+    - generic [ref=e151]: Filter Customer
+```
