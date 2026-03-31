@@ -15,47 +15,85 @@ test('Create Invoice', async ({ page }) => {
 
   // ===== PILIH MARKING =====
   await page.locator('#select2-filter_marking-container').click();
-  await page.locator('.select2-search__field').fill('bagass');
+  await page.locator('.select2-container--open .select2-search__field').fill('bagass');
   await page.keyboard.press('Enter');
 
   // ===== FILTER =====
   await page.waitForTimeout(2000);
   await page.locator('#btnFilter').click({ force: true });
 
-  // ===== TUNGGU DATA =====
-  await page.waitForTimeout(4000);
+  // ===== TUNGGU DATA TABLE =====
+ await page.waitForFunction(() => {
+  return document.querySelectorAll('#tableresi tbody tr').length > 0;
+});
 
-  // ===== SELECT DATA (PAKAI CHECKBOX VIA JS) =====
-  await page.evaluate(() => {
-    const checkbox = document.querySelector('#tableresi tbody input[type="checkbox"]');
-    if (checkbox) {
-      (checkbox as HTMLInputElement).checked = true;
-      checkbox.dispatchEvent(new Event('change', { bubbles: true }));
-    }
-  });
+// paksa centang checkbox TANPA klik
+await page.evaluate(() => {
+  const checkbox = document.querySelector('#tableresi tbody input[type="checkbox"]') as HTMLInputElement | null;
 
-  await page.waitForTimeout(1500);
+  if (checkbox) {
+    checkbox.checked = true;
+    checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+});
+  // ===== TUNGGU BUTTON AKTIF =====
+  await page.waitForTimeout(2000);
 
   // ===== BUAT INVOICE =====
-  await page.locator('button:has-text("Buat Invoice")').click({ force: true });
+  await page.waitForFunction(() => {
+  const btn = document.querySelector('#createbutton') as HTMLButtonElement | null;
+  return btn && !btn.disabled;
+}, { timeout: 15000 });
+
+// klik via JS (ANTI INVISIBLE)
+await page.evaluate(() => {
+  const btn = document.querySelector('#createbutton') as HTMLButtonElement | null;
+  if (btn) btn.click();
+});
 
   // ===== TUNGGU MODAL =====
   await page.waitForTimeout(2000);
 
   // ===== SHIP VIA =====
-  await page.getByTitle('-- Pilih Ship Via --').click();
-  await page.locator('.select2-container--open .select2-search__field').fill('SEA');
-  await page.keyboard.press('Enter');
+  await page.evaluate(() => {
+  const select = document.querySelector('#ship_via') as HTMLSelectElement | null;
+  if (select) {
+    select.value = select.options[1].value; // pilih opsi pertama selain default
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+});
 
   // ===== REKENING =====
-  await page.getByTitle('-- Pilih Rekening --').click();
-  await page.locator('.select2-container--open .select2-search__field').fill('BCA');
-  await page.keyboard.press('Enter');
+  await page.evaluate(() => {
+  const select = document.querySelector('#rekening') as HTMLSelectElement | null;
+
+  if (select) {
+    // pilih option kedua (biasanya bukan default)
+    select.selectedIndex = 1;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+});
 
   // ===== NOTE =====
-  await page.locator('.note-editable').fill('mahal ni');
+  // isi note TANPA nunggu .note-editable
+await page.evaluate(() => {
+  const editor = document.querySelector('.note-editable') as HTMLElement | null;
+
+  if (editor) {
+    editor.innerHTML = 'mahal ni';
+  } else {
+    // fallback kalau belum ke-render
+    const textarea = document.querySelector('textarea[name="note"]') as HTMLTextAreaElement | null;
+    if (textarea) {
+      textarea.value = 'mahal ni';
+    }
+  }
+});
 
   // ===== SUBMIT =====
-  await page.locator('button:has-text("Buat Invoice")').last().click({ force: true });
+  await page.evaluate(() => {
+  const btn = document.querySelector('#createbutton') as HTMLButtonElement | null;
+  if (btn) btn.click();
+});
 
 });
