@@ -1,7 +1,7 @@
 # Page snapshot
 
 ```yaml
-- generic [ref=e1]:
+- generic [active] [ref=e1]:
   - generic [ref=e2]:
     - text:  
     - generic [ref=e4]:
@@ -152,7 +152,7 @@
           - generic [ref=e127]: Marking
           - generic [ref=e128]:
             - combobox [ref=e129]
-            - combobox "bagass - LD/KONG08" [active] [ref=e132] [cursor=pointer]:
+            - combobox "bagass - LD/KONG08" [ref=e132] [cursor=pointer]:
               - generic "bagass - LD/KONG08" [ref=e133]
               - text: 
           - generic [ref=e134]: Resi
@@ -171,4 +171,6 @@
       - generic [ref=e146]:
         - text:  
         - generic [ref=e148]: © 2026. Nore
+  - tooltip "Filter Customer" [ref=e149]:
+    - generic [ref=e151]: Filter Customer
 ```
