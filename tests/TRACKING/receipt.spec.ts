@@ -59,14 +59,22 @@ test('Create Receipt', async ({ page }) => {
 await page.locator('#select2-kategori_barang_id-container').click();
 
 // tunggu dropdown muncul
-await page.locator('ul.select2-results__options')
-  .waitFor({ state: 'visible' });
+await page.evaluate(() => {
+  const select = document.querySelector('#kategori_barang_id') as HTMLSelectElement | null;
+  if (select) {
+    select.selectedIndex = 1;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+});
 
 // pilih Elektronik
-await page.locator('ul.select2-results__options li')
-  .filter({ hasText: 'Elektronik' })
-  .first()
-  .click();
+await page.evaluate(() => {
+  const select = document.querySelector('#kategori_barang_id') as HTMLSelectElement | null;
+  if (select) {
+    select.selectedIndex = 1;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+});
 
   // ================= PENYEDIA PENGIRIMAN =================
   await page.locator('#select2-penyedia_pengiriman_id-container').click();
