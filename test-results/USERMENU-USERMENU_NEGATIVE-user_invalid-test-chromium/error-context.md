@@ -1,0 +1,242 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - text:  
+    - generic [ref=e4]:
+      - list [ref=e5]:
+        - listitem [ref=e6]:
+          - link "" [ref=e7] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e8]: 
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - link "Tuan Muda Bagas " [ref=e12] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e13]: Tuan Muda Bagas
+            - text: 
+          - text:  
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - text:   
+      - list [ref=e18]:
+        - listitem [ref=e19]:
+          - generic [ref=e20]: Menu
+          - text: 
+        - listitem [ref=e21]:
+          - link " Dashboard" [ref=e22] [cursor=pointer]:
+            - /url: /dashboard
+            - generic [ref=e23]: 
+            - generic [ref=e24]: Dashboard
+        - listitem [ref=e25]:
+          - link " Users" [ref=e26] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/users
+            - generic [ref=e27]: 
+            - generic [ref=e28]: Users
+        - listitem [ref=e29]:
+          - generic [ref=e30]: Tracking
+          - text: 
+        - listitem [ref=e31]:
+          - link " Receipt" [ref=e32] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/receipt
+            - generic [ref=e33]: 
+            - generic [ref=e34]: Receipt
+        - listitem [ref=e35]:
+          - link " Stuffing China" [ref=e36] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/stuffingcina
+            - generic [ref=e37]: 
+            - generic [ref=e38]: Stuffing China
+        - listitem [ref=e39]:
+          - link " Container Ready to Send" [ref=e40] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/containertosend
+            - generic [ref=e41]: 
+            - generic [ref=e42]: Container Ready to Send
+        - listitem [ref=e43]:
+          - link " Delivery to Indonesia" [ref=e44] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/delivertoindo
+            - generic [ref=e45]: 
+            - generic [ref=e46]: Delivery to Indonesia
+        - listitem [ref=e47]:
+          - link " Arrival to Indonesia" [ref=e48] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/arrivalindo
+            - generic [ref=e49]: 
+            - generic [ref=e50]: Arrival to Indonesia
+        - listitem [ref=e51]:
+          - link " Unstuffing Indonesia" [ref=e52] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/stuffingindo
+            - generic [ref=e53]: 
+            - generic [ref=e54]: Unstuffing Indonesia
+        - listitem [ref=e55]:
+          - link " Delivery to Customer" [ref=e56] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/deliverytocustomer
+            - generic [ref=e57]: 
+            - generic [ref=e58]: Delivery to Customer
+        - listitem [ref=e59]:
+          - link " History Receipt" [ref=e60] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/historyreceipt
+            - generic [ref=e61]: 
+            - generic [ref=e62]: History Receipt
+        - listitem [ref=e63]:
+          - generic [ref=e64]: Invoicing
+          - text: 
+        - listitem [ref=e65]:
+          - link " Invoice" [ref=e66] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/invoice
+            - generic [ref=e67]: 
+            - generic [ref=e68]: Invoice
+        - listitem [ref=e69]:
+          - link " Invoice Lain lain" [ref=e70] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/invoicelain
+            - generic [ref=e71]: 
+            - generic [ref=e72]: Invoice Lain lain
+        - listitem [ref=e73]:
+          - generic [ref=e74]: Master
+          - text: 
+        - listitem [ref=e75]:
+          - link " Coload" [ref=e76] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/coload
+            - generic [ref=e77]: 
+            - generic [ref=e78]: Coload
+        - listitem [ref=e79]:
+          - link " Penyedia Pengiriman" [ref=e80] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/masterpengiriman
+            - generic [ref=e81]: 
+            - generic [ref=e82]: Penyedia Pengiriman
+        - listitem [ref=e83]:
+          - link " Port" [ref=e84] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/masterports
+            - generic [ref=e85]: 
+            - generic [ref=e86]: Port
+        - listitem [ref=e87]:
+          - link " Gudang Asal" [ref=e88] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/gudang
+            - generic [ref=e89]: 
+            - generic [ref=e90]: Gudang Asal
+        - listitem [ref=e91]:
+          - link " Master Ship" [ref=e92] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/shipvia
+            - generic [ref=e93]: 
+            - generic [ref=e94]: Master Ship
+        - listitem [ref=e95]:
+          - link " Rekening" [ref=e96] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/rekening
+            - generic [ref=e97]: 
+            - generic [ref=e98]: Rekening
+        - listitem [ref=e99]:
+          - link " Tipe Ekspedisi" [ref=e100] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/tipeekspedisi
+            - generic [ref=e101]: 
+            - generic [ref=e102]: Tipe Ekspedisi
+        - listitem [ref=e103]:
+          - link " Kategori Barang" [ref=e104] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/kategoribarang
+            - generic [ref=e105]: 
+            - generic [ref=e106]: Kategori Barang
+        - listitem [ref=e107]:
+          - link " Alamat Gudang" [ref=e108] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/alamatgudang
+            - generic [ref=e109]: 
+            - generic [ref=e110]: Alamat Gudang
+        - listitem [ref=e111]:
+          - link " Pengaturan" [ref=e112] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/settings
+            - generic [ref=e113]: 
+            - generic [ref=e114]: Pengaturan
+    - generic [ref=e115]:
+      - generic [ref=e118]:
+        - heading "Tambah User" [level=4] [ref=e119]
+        - text: 
+      - generic [ref=e124]:
+        - group "Data User" [ref=e125]:
+          - generic [ref=e126]: Data User
+          - generic [ref=e128]: Preview
+          - generic [ref=e130]:
+            - generic [ref=e131]: Foto
+            - button "Choose File" [ref=e133]
+          - generic [ref=e134]:
+            - generic [ref=e135]: Username *
+            - textbox "Username" [ref=e137]: bagasuhuyuhuy
+          - generic [ref=e138]:
+            - generic [ref=e139]: Password *
+            - textbox "Password" [ref=e141]: uhuyuhuy
+          - generic [ref=e142]:
+            - generic [ref=e143]: Nama *
+            - textbox "Nama" [ref=e145]: bgas
+          - generic [ref=e146]:
+            - generic [ref=e147]: Nickname
+            - textbox "Nickname" [ref=e149]: jagoan kamapung
+          - generic [ref=e150]:
+            - generic [ref=e151]: Email
+            - generic [ref=e152]:
+              - textbox "Email" [ref=e153]: bgs
+              - generic [ref=e154]:  Please enter a valid email address.
+          - generic [ref=e155]:
+            - generic [ref=e156]: No. Telpon *
+            - generic [ref=e157]:
+              - textbox " Mohon diisi." [ref=e158]:
+                - /placeholder: 62 999 9999 9999 999
+              - generic [ref=e159]:  Mohon diisi.
+          - generic [ref=e160]:
+            - generic [ref=e161]: Alamat
+            - textbox [ref=e163]: smrng
+          - generic [ref=e164]:
+            - generic [ref=e165]: Coload
+            - generic [ref=e166]:
+              - combobox [ref=e167]
+              - combobox "Bagas Expres" [ref=e170] [cursor=pointer]:
+                - generic "Bagas Expres" [ref=e171]
+                - text: 
+          - generic [ref=e172]:
+            - generic [ref=e173]: Role *
+            - generic [ref=e174]:
+              - combobox [ref=e175]
+              - combobox "Admin" [ref=e178] [cursor=pointer]:
+                - generic "Admin" [ref=e179]
+                - text: 
+              - text: 
+          - generic [ref=e180]:
+            - generic [ref=e181]: Sales
+            - generic [ref=e182]:
+              - combobox [ref=e183]
+              - combobox "bagasuye" [ref=e186] [cursor=pointer]:
+                - generic "bagasuye" [ref=e187]
+                - text: 
+          - generic [ref=e188]:
+            - generic [ref=e189]: Status
+            - generic [ref=e190]:
+              - combobox [ref=e191]
+              - combobox "Aktif" [ref=e194] [cursor=pointer]:
+                - generic "Aktif" [ref=e195]
+                - text: 
+          - generic [ref=e196]:
+            - generic [ref=e197]: Shipping Mark
+            - generic [ref=e199]:
+              - generic [ref=e201]: LD/
+              - textbox "Marking" [active] [ref=e202]: LDuhuy
+            - button "" [ref=e204] [cursor=pointer]:
+              - generic [ref=e205]: 
+          - generic [ref=e208]:
+            - generic [ref=e210]:
+              - generic [ref=e212]: LD/
+              - textbox "Marking" [ref=e213]
+            - button "" [ref=e215] [cursor=pointer]:
+              - generic [ref=e216]: 
+          - generic [ref=e217]:
+            - generic [ref=e218]: Wilayah
+            - textbox "Wilayah" [ref=e220]
+          - generic [ref=e221]:
+            - generic [ref=e222]: Keterangan
+            - textbox [ref=e224]
+        - generic [ref=e225]:
+          - link "Kembali " [ref=e226] [cursor=pointer]:
+            - /url: https://laud.noretest2.com/users
+            - text: Kembali
+            - generic [ref=e227]: 
+          - button "Simpan " [ref=e228] [cursor=pointer]:
+            - text: Simpan
+            - generic [ref=e229]: 
+      - generic [ref=e230]:
+        - text:  
+        - generic [ref=e232]: © 2026. Nore
+```

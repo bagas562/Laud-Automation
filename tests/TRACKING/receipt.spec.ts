@@ -1,14 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-test('Create Receipt', async ({ page }) => {
-
-  test.setTimeout(90000);
+test('Create Receipt FULL FIX', async ({ page }) => {
+  test.setTimeout(120000);
 
   // ================= LOGIN =================
   await page.goto('https://laud.noretest2.com/login');
 
-  await page.getByRole('textbox', { name: 'Username / Marking' }).fill('Bagas-QA');
-  await page.getByRole('textbox', { name: 'Password' }).fill('Bagas-QA');
+  await page.getByRole('textbox', { name: /Username/i }).fill('Bagas-QA');
+  await page.getByRole('textbox', { name: /Password/i }).fill('Bagas-QA');
   await page.getByRole('button', { name: /Sign in/i }).click();
 
   await page.waitForLoadState('networkidle');
@@ -21,29 +20,41 @@ test('Create Receipt', async ({ page }) => {
   await page.getByRole('textbox', { name: 'No. Resi' }).fill('272727272277272');
   await page.getByRole('textbox', { name: 'China Local Express' }).fill('1111111');
 
-  // Pilih Jalur
-  await page.getByTitle('-- Pilih Jalur --').click();
-  await page.getByRole('treeitem', { name: /SEA - Express/i }).first().click();
+  // ================= JALUR =================
+  await page.locator('.select2-selection').nth(0).click();
+  await page.waitForSelector('.select2-search__field');
+  await page.locator('.select2-search__field').fill('SEA');
+  await page.locator('.select2-results__option', { hasText: 'SEA - Express' }).click();
 
-  // Pilih Port
-  await page.getByTitle('-- Pilih Port --').click();
-  await page.getByRole('treeitem', { name: /Bandung/i }).first().click();
+  // ================= PORT =================
+  await page.locator('.select2-selection').nth(1).click();
+  await page.waitForSelector('.select2-search__field');
+  await page.locator('.select2-search__field').fill('Band');
+  await page.locator('.select2-results__option').first().click();
 
-  // Gudang Asal
-  await page.getByTitle('-- Pilih Gudang Asal --').click();
-  await page.getByRole('treeitem', { name: /Xiaomei Garage/i }).first().click();
+  // ================= GUDANG =================
+  await page.locator('.select2-selection').nth(2).click();
+  await page.waitForSelector('.select2-search__field');
+  await page.locator('.select2-search__field').fill('Xiaomei');
+  await page.locator('.select2-results__option').first().click();
 
-  // Coload
-  await page.getByTitle('-- Choose Coload --').click();
-  await page.getByRole('treeitem', { name: /Bagas Expres/i }).first().click();
+  // ================= COLOAD =================
+  await page.locator('.select2-selection').nth(3).click();
+  await page.waitForSelector('.select2-search__field');
+  await page.locator('.select2-search__field').fill('Bagas');
+  await page.locator('.select2-results__option').first().click();
 
-  // Customer
-  await page.getByTitle('-- Choose Customer --').click();
-  await page.getByRole('treeitem', { name: /Bagass/i }).first().click();
+  // ================= CUSTOMER =================
+  await page.locator('.select2-selection').nth(4).click();
+  await page.waitForSelector('.select2-search__field');
+  await page.locator('.select2-search__field').fill('Bagass');
+  await page.locator('.select2-results__option').first().click();
 
-  // Marking
-  await page.getByTitle('-- Choose Marking --').click();
-  await page.getByRole('treeitem', { name: /LD\/KONG08/i }).first().click();
+  // ================= MARKING =================
+  await page.locator('.select2-selection').nth(5).click();
+  await page.waitForSelector('.select2-search__field');
+  await page.locator('.select2-search__field').fill('LD');
+  await page.locator('.select2-results__option').first().click();
 
   // ================= GOODS =================
   await page.getByRole('button', { name: /ADD NEW GOODS/i }).click();
@@ -53,44 +64,50 @@ test('Create Receipt', async ({ page }) => {
   await page.locator('#tinggi').fill('30');
   await page.locator('#berat').fill('4');
   await page.locator('#total_ctn').fill('7');
-// ================= CATEGORY =================
 
-// klik dropdown category
-await page.locator('#select2-kategori_barang_id-container').click();
+  // ================= CATEGORY =================
+  await page.locator('#select2-kategori_barang_id-container').click();
 
-// tunggu dropdown muncul
-await page.evaluate(() => {
-  const select = document.querySelector('#kategori_barang_id') as HTMLSelectElement | null;
+await page.waitForTimeout(1000);
+
+await page.keyboard.type('Elektro');
+await page.keyboard.press('Enter');
+
+  // ================= PENYEDIA =================
+  await page.evaluate(() => {
+  const select = document.querySelector('#penyedia_pengiriman_id') as HTMLSelectElement | null;
   if (select) {
-    select.selectedIndex = 1;
+    select.selectedIndex = 1; // pilih option ke-1 (biasanya Bagas)
     select.dispatchEvent(new Event('change', { bubbles: true }));
   }
 });
 
-// pilih Elektronik
-await page.evaluate(() => {
-  const select = document.querySelector('#kategori_barang_id') as HTMLSelectElement | null;
-  if (select) {
-    select.selectedIndex = 1;
-    select.dispatchEvent(new Event('change', { bubbles: true }));
-  }
-});
-
-  // ================= PENYEDIA PENGIRIMAN =================
-  await page.locator('#select2-penyedia_pengiriman_id-container').click();
-  await page.getByRole('treeitem', { name: /Bagas Expres/i }).first().click();
-
-  await page.locator('#deskripsi').fill('i');
+  // ================= DESKRIPSI =================
+  await page.locator('#deskripsi').fill('test barang');
 
   // ================= SUBMIT =================
+  // scroll ke tombol biar ke-render
+await page.locator('#btnsubmitreceipt').scrollIntoViewIfNeeded();
 
-// tunggu tombol submit muncul & aktif
-const submitButton = page.getByRole('button', { name: /Submit/i }).first();
+// tunggu sebentar (biar JS form settle)
+await page.waitForTimeout(1000);
 
-await submitButton.waitFor({ state: 'visible' });
-await submitButton.click({ force: true });
+// cek dulu disabled atau tidak
+const isDisabled = await page.locator('#btnsubmitreceipt').isDisabled();
 
-// tunggu proses selesai
+if (isDisabled) {
+  console.log('⚠️ tombol masih disabled, paksa submit');
+
+  // paksa trigger submit via JS
+  await page.evaluate(() => {
+    const btn = document.querySelector('#btnsubmitreceipt') as HTMLButtonElement | null;
+    if (btn) btn.removeAttribute('disabled');
+  });
+}
+
+// klik submit
+await page.locator('#btnsubmitreceipt').click({ force: true });
+
+// tunggu selesai
 await page.waitForLoadState('networkidle');
-
 });

@@ -5,29 +5,41 @@ test('Stuffing China', async ({ page }) => {
 
   await page.goto('https://laud.noretest2.com/login');
 
-  // LOGIN
+  // ================= LOGIN =================
   await page.getByRole('textbox', { name: 'Username / Marking' }).fill('Bagas-QA');
   await page.getByRole('textbox', { name: 'Password' }).fill('Bagas-QA');
-  await page.getByRole('button', { name: 'Sign in' }).click();
+  await page.getByRole('button', { name: /Sign in/i }).click();
 
-  // MENU
-  await page.getByRole('link', { name: 'Stuffing China' }).click();
-  await page.getByRole('link', { name: 'STUFFING CARTON' }).click();
+  await page.waitForLoadState('networkidle');
 
-  // tunggu table muncul
-  await page.waitForSelector('#table_warehouse');
+  // ================= MENU =================
+  await page.getByRole('link', { name: /Stuffing China/i }).click();
+  await page.getByRole('link', { name: /STUFFING CARTON/i }).click();
 
-  // pilih destination
+  // ================= WAIT TABLE =================
+  await page.waitForSelector('#table_warehouse', { timeout: 30000 });
+
+  // ================= DESTINATION (FIX) =================
   await page.locator('#select2-port_to1-container').click();
-  await page.locator('.select2-results__option:has-text("Bandung")').click();
 
-  const checkbox = page.locator('#table_warehouse tbody tr').first().locator('input[type="checkbox"]');
+  const option = page.locator('.select2-results__option').first();
 
-await checkbox.click({ force: true });
+  await option.waitFor({ state: 'visible', timeout: 20000 });
+  await option.click();
 
-  await page.waitForSelector('#no_container1');
-await page.fill('#no_container1', '6699');
+  // ================= CHECKBOX =================
+  const rows = page.locator('#table_warehouse tbody tr');
+  await expect(rows.first()).toBeVisible();
 
- await page.getByRole('button', { name: /To Container/i }).last().click();
+  const checkbox = rows.first().locator('input[type="checkbox"]');
+  await checkbox.click({ force: true });
 
+  // ================= INPUT CONTAINER =================
+  await page.waitForSelector('#no_container1', { timeout: 20000 });
+  await page.fill('#no_container1', '6699');
+
+  // ================= BUTTON =================
+  await page.getByRole('button', { name: /To Container/i }).last().click({ force: true });
+
+  await page.waitForLoadState('networkidle');
 });

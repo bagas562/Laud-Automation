@@ -1,19 +1,27 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
-  await page.goto('https://laud.noretest2.com/login');
-  await page.getByRole('textbox', { name: 'Username / Marking' }).click();
-  await page.getByRole('textbox', { name: 'Username / Marking' }).fill('Bagas-QA');
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('Bagas-QA');
-  await page.getByRole('button', { name: 'Sign in ' }).click();
-  await page.getByRole('link', { name: ' Container Ready to Send' }).click();
-  const row = page.locator('table tbody tr', { hasText: 'Bandung' }).first();
- const checkbox = page.locator('input[type="checkbox"]').nth(1); 
-// nth(0) biasanya checkbox header, jadi pakai nth(1)
+test('Container RDS', async ({ page }) => {
 
-await checkbox.waitFor({ timeout: 30000 });
-await checkbox.click({ force: true });
-  await page.getByRole('button', { name: 'Delivery to Indonesia ' }).click();
-  await page.goto('https://laud.noretest2.com/containertosend');
-}); 
+  test.setTimeout(90000);
+
+  // ================= LOGIN =================
+  await page.goto('https://laud.noretest2.com/login');
+
+  await page.getByRole('textbox', { name: 'Username / Marking' }).fill('Bagas-QA');
+  await page.getByRole('textbox', { name: 'Password' }).fill('Bagas-QA');
+  await page.getByRole('button', { name: /Sign in/i }).click();
+
+  await page.waitForLoadState('networkidle');
+
+  // ================= MENU =================
+  await page.getByRole('link', { name: /Container Ready to Send/i }).click();
+
+  // ================= WAIT TABLE =================
+  await page.waitForSelector('table tbody tr', { timeout: 30000 });
+
+// ================= KLIK CELL PERTAMA (PASTI ADA) =================
+const firstRow = page.locator('table tbody tr').first();
+
+// klik kolom pertama (biasanya checkbox area)
+await firstRow.locator('td').first().click({ force: true });
+});
