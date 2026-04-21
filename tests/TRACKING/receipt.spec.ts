@@ -77,7 +77,7 @@ await page.keyboard.press('Enter');
   await page.evaluate(() => {
   const select = document.querySelector('#penyedia_pengiriman_id') as HTMLSelectElement | null;
   if (select) {
-    select.selectedIndex = 1; // pilih option ke-1 (biasanya Bagas)
+    select.selectedIndex = 1; 
     select.dispatchEvent(new Event('change', { bubbles: true }));
   }
 });
@@ -86,28 +86,26 @@ await page.keyboard.press('Enter');
   await page.locator('#deskripsi').fill('test barang');
 
   // ================= SUBMIT =================
-  // scroll ke tombol biar ke-render
+  
 await page.locator('#btnsubmitreceipt').scrollIntoViewIfNeeded();
 
-// tunggu sebentar (biar JS form settle)
+
 await page.waitForTimeout(1000);
 
-// cek dulu disabled atau tidak
+
 const isDisabled = await page.locator('#btnsubmitreceipt').isDisabled();
 
 if (isDisabled) {
-  console.log('⚠️ tombol masih disabled, paksa submit');
+  console.log
 
-  // paksa trigger submit via JS
+  
   await page.evaluate(() => {
     const btn = document.querySelector('#btnsubmitreceipt') as HTMLButtonElement | null;
     if (btn) btn.removeAttribute('disabled');
   });
 }
 
-// klik submit
-await page.locator('#btnsubmitreceipt').click({ force: true });
 
-// tunggu selesai
-await page.waitForLoadState('networkidle');
+ await page.waitForTimeout(1000);
+  await page.locator('button:has-text("Submit")').last().dispatchEvent('click');
 });
